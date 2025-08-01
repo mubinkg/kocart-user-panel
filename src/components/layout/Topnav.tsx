@@ -4,11 +4,11 @@ import Image from 'next/image';
 
 export function Topnav() {
   return (
-    <div className="flex justify-between shadow-md">
-      <div>
+    <div className="shadow-md">
+      <div className="container mx-auto flex justify-between">
         <Image src="/logo.png" width={50} height={50} alt="logo" />
+        <Navbar />
       </div>
-      <Navbar />
     </div>
   );
 }

@@ -1,19 +1,15 @@
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import Image from 'next/image';
 
 export function Footer() {
   return (
     <footer className="bg-indigo-800 px-6 py-12 text-white">
-      <div className="mx-auto max-w-7xl">
+      <div className="container mx-auto">
         <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Logo Section */}
           <div className="flex justify-center lg:justify-start">
             <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white">
-              <div className="text-sm font-bold text-indigo-800">
-                <div className="flex flex-col items-center">
-                  <div className="text-xs text-red-500">🛒</div>
-                  <div>KoCart</div>
-                </div>
-              </div>
+              <Image src="/logo.png" alt="logo" width={150} height={150} />
             </div>
           </div>
 
@@ -89,7 +85,7 @@ export function Footer() {
         </div>
 
         {/* Social Media Icons */}
-        <div className="mb-8 flex justify-center space-x-4 lg:justify-end">
+        <div className="my-8 flex justify-center space-x-4">
           <Facebook className="h-6 w-6 cursor-pointer text-gray-300 hover:text-white" />
           <Twitter className="h-6 w-6 cursor-pointer text-gray-300 hover:text-white" />
           <Instagram className="h-6 w-6 cursor-pointer text-gray-300 hover:text-white" />
