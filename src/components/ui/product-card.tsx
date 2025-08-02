@@ -1,12 +1,9 @@
 'use client';
 
 import * as React from 'react';
-import { cn } from '@/lib/utils';
 import {
   Card,
   CardContent,
-  CardFooter,
-  CardHeader,
   CardTitle,
 } from '@/components/ui/card'; // Assuming Shadcn's Card component is available
 
@@ -83,11 +80,6 @@ export const ProductCard = () => {
             src={product.imageUrl}
             alt={product.title}
             className="h-auto w-full rounded-t-xl object-cover"
-            onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-              e.currentTarget.onerror = null;
-              e.currentTarget.src =
-                'https://placehold.co/100x100/cccccc/ffffff?text=Image+Not+Found';
-            }}
           />
           <CardTitle className="text-xl font-semibold">
             {product.title}
