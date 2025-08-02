@@ -24,9 +24,6 @@ export function Footer() {
               <li>• Rom&nd</li>
               <li>• Binggrae</li>
             </ul>
-            <button className="mt-3 text-sm text-gray-300 underline hover:text-white">
-              See all
-            </button>
           </div>
 
           {/* Our Categories Section */}
@@ -40,9 +37,6 @@ export function Footer() {
               <li>• Beauty</li>
               <li>• Home & Decor</li>
             </ul>
-            <button className="mt-3 text-sm text-gray-300 underline hover:text-white">
-              See all
-            </button>
           </div>
 
           {/* Download App Section */}
