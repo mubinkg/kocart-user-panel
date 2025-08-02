@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button'; // Assuming Shadcn's Button component is available
 import { ArrowLeft, ArrowRight } from 'lucide-react'; // Assuming lucide-react is available for icons

@@ -1,9 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Card, CardContent, CardTitle } from '@/components/ui/card'; // Assuming Shadcn's Card component is available
 
-// A simple star rating component using inline SVG for the stars
 const StarRating = ({
   rating,
   totalReviews,
@@ -59,31 +57,41 @@ const StarRating = ({
   );
 };
 
-export const ProductCard = () => {
-  const product = {
-    imageUrl: 'https://placehold.co/400x400/cccccc/ffffff?text=Product+Image',
-    title: 'Oversized Jeans Jacket',
-    price: '$120',
-    rating: 4.5,
-    reviews: 88,
-  };
+type ProductCard = {
+  id: number
+  imageUrl: string
+  title: string
+  price: string
+  rating: number
+  reviews: number
+}
+
+export const ProductCard = ({ product }: { product: ProductCard }) => {
 
   return (
-    <div className="flex items-center justify-center">
-      <Card className="w-full overflow-hidden rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-xl">
-        <CardContent className="space-y-2">
-          <img
-            src={product.imageUrl}
-            alt={product.title}
-            className="h-auto w-full rounded-t-xl object-cover"
-          />
-          <CardTitle className="text-xl font-semibold">
+    <div
+      key={product.id}
+      className="w-full overflow-hidden rounded-xl shadow-sm transition-shadow duration-300 hover:shadow-md"
+    >
+      <div className="space-y-2">
+        <img
+          src={product.imageUrl}
+          alt={product.title}
+          className="h-auto w-full rounded-t-xl object-cover"
+        />
+        <div className='flex flex-col p-4 gap-2'>
+          <h1 className="text-xl font-semibold">
             {product.title}
-          </CardTitle>
-          <div className="text-2xl font-bold text-red-500">{product.price}</div>
-          <StarRating rating={product.rating} totalReviews={product.reviews} />
-        </CardContent>
-      </Card>
+          </h1>
+          <div className="text-2xl font-bold text-red-500">
+            {product.price}
+          </div>
+          <StarRating
+            rating={product.rating}
+            totalReviews={product.reviews}
+          />
+        </div>
+      </div>
     </div>
   );
 };

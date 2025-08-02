@@ -105,7 +105,7 @@ const ChevronDownIcon = () => (
 
 // Main Navigation Bar Component
 export function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen,] = useState(false);
   const [isBrandsDropdownOpen, setIsBrandsDropdownOpen] = useState(false);
   const [isCategoriesDropdownOpen, setIsCategoriesDropdownOpen] =
     useState(false);
@@ -179,9 +179,8 @@ export function Navbar() {
                 {link.title}
                 {link.dropdown && (
                   <span
-                    className={`transform transition-transform duration-200 ${
-                      link.isDropdownOpen ? 'rotate-180' : ''
-                    }`}
+                    className={`transform transition-transform duration-200 ${link.isDropdownOpen ? 'rotate-180' : ''
+                      }`}
                   >
                     <ChevronDownIcon />
                   </span>
@@ -205,9 +204,8 @@ export function Navbar() {
                         >
                           {item.title}
                           <span
-                            className={`transform transition-transform duration-200 ${
-                              item.isSubDropdownOpen ? 'rotate-180' : ''
-                            }`}
+                            className={`transform transition-transform duration-200 ${item.isSubDropdownOpen ? 'rotate-180' : ''
+                              }`}
                           >
                             <ChevronDownIcon />
                           </span>
@@ -270,9 +268,8 @@ export function Navbar() {
 
       {/* Mobile Menu (visible on small screens) */}
       <div
-        className={`absolute top-16 left-0 w-full transform bg-white shadow-lg transition-all duration-300 md:hidden ${
-          isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
-        }`}
+        className={`absolute top-16 left-0 w-full transform bg-white shadow-lg transition-all duration-300 md:hidden ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
+          }`}
       >
         <div className="flex flex-col space-y-2 p-4">
           {navLinks.map(link => (
