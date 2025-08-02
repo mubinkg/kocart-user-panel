@@ -99,13 +99,12 @@ export function HotDeals() {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`h-3 w-3 ${
-          i < Math.floor(rating)
+        className={`h-3 w-3 ${i < Math.floor(rating)
             ? 'fill-yellow-400 text-yellow-400'
             : i < rating
               ? 'fill-yellow-400/50 text-yellow-400'
               : 'fill-gray-200 text-gray-200'
-        }`}
+          }`}
       />
     ));
   };
