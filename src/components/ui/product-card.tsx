@@ -1,11 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {
-  Card,
-  CardContent,
-  CardTitle,
-} from '@/components/ui/card'; // Assuming Shadcn's Card component is available
+import { Card, CardContent, CardTitle } from '@/components/ui/card'; // Assuming Shadcn's Card component is available
 
 // A simple star rating component using inline SVG for the stars
 const StarRating = ({

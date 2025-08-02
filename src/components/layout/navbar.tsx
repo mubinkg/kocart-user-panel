@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -13,7 +13,7 @@ const SearchIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="w-4 h-4 text-gray-500"
+    className="h-4 w-4 text-gray-500"
   >
     <circle cx="11" cy="11" r="8" />
     <path d="m21 21-4.3-4.3" />
@@ -29,7 +29,7 @@ const UserIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="w-5 h-5 text-gray-700"
+    className="h-5 w-5 text-gray-700"
   >
     <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
     <circle cx="12" cy="7" r="4" />
@@ -45,7 +45,7 @@ const CartIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="w-5 h-5 text-gray-700"
+    className="h-5 w-5 text-gray-700"
   >
     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
     <path d="M3 6h18" />
@@ -62,7 +62,7 @@ const ChevronDownIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="w-4 h-4 ml-1 transition-transform"
+    className="ml-1 h-4 w-4 transition-transform"
   >
     <path d="m6 9 6 6 6-6" />
   </svg>
@@ -107,7 +107,8 @@ const ChevronDownIcon = () => (
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isBrandsDropdownOpen, setIsBrandsDropdownOpen] = useState(false);
-  const [isCategoriesDropdownOpen, setIsCategoriesDropdownOpen] = useState(false);
+  const [isCategoriesDropdownOpen, setIsCategoriesDropdownOpen] =
+    useState(false);
   const [isBeautySubDropdownOpen, setIsBeautySubDropdownOpen] = useState(false);
 
   // Data for the navigation links and dropdowns
@@ -117,13 +118,7 @@ export function Navbar() {
     {
       title: 'Korean Brands',
       href: '#',
-      dropdown: [
-        'Brand 1',
-        'Brand 2',
-        'Brand 3',
-        'Brand 4',
-        'Brand 5',
-      ],
+      dropdown: ['Brand 1', 'Brand 2', 'Brand 3', 'Brand 4', 'Brand 5'],
       isDropdownOpen: isBrandsDropdownOpen,
       setDropdownOpen: setIsBrandsDropdownOpen,
     },
@@ -161,27 +156,32 @@ export function Navbar() {
   // };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-sm font-sans">
+    <nav className="sticky top-0 z-50 bg-white font-sans shadow-sm">
       <div className="container mx-auto flex items-center justify-between">
         <Image src="/logo.png" alt="Logo" width={50} height={50} />
 
-        <div className="hidden md:flex items-center space-x-6">
-          {navLinks.map((link) => (
+        <div className="hidden items-center space-x-6 md:flex">
+          {navLinks.map(link => (
             <div
               key={link.title}
-              className="relative group"
-              onMouseEnter={() => link.setDropdownOpen && link.setDropdownOpen(true)}
-              onMouseLeave={() => link.setDropdownOpen && link.setDropdownOpen(false)}
+              className="group relative"
+              onMouseEnter={() =>
+                link.setDropdownOpen && link.setDropdownOpen(true)
+              }
+              onMouseLeave={() =>
+                link.setDropdownOpen && link.setDropdownOpen(false)
+              }
             >
               <a
                 href={link.href}
-                className="flex items-center text-gray-700 hover:text-blue-600 transition-colors p-2 rounded-md"
+                className="flex items-center rounded-md p-2 text-gray-700 transition-colors hover:text-blue-600"
               >
                 {link.title}
                 {link.dropdown && (
                   <span
-                    className={`transform transition-transform duration-200 ${link.isDropdownOpen ? 'rotate-180' : ''
-                      }`}
+                    className={`transform transition-transform duration-200 ${
+                      link.isDropdownOpen ? 'rotate-180' : ''
+                    }`}
                   >
                     <ChevronDownIcon />
                   </span>
@@ -189,13 +189,13 @@ export function Navbar() {
               </a>
               {/* Dropdown Menu */}
               {link.dropdown && link.isDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 min-w-[200px] bg-white rounded-md shadow-lg py-2 z-50">
-                  {link.dropdown.map((item, index) => (
+                <div className="absolute top-full left-0 z-50 mt-2 min-w-[200px] rounded-md bg-white py-2 shadow-lg">
+                  {link.dropdown.map((item, index) =>
                     typeof item === 'object' ? (
                       // Nested dropdown for Categories
                       <div
                         key={item.title}
-                        className="relative group/sub"
+                        className="group/sub relative"
                         onMouseEnter={() => item.setSubDropdownOpen(true)}
                         onMouseLeave={() => item.setSubDropdownOpen(false)}
                       >
@@ -205,15 +205,16 @@ export function Navbar() {
                         >
                           {item.title}
                           <span
-                            className={`transform transition-transform duration-200 ${item.isSubDropdownOpen ? 'rotate-180' : ''
-                              }`}
+                            className={`transform transition-transform duration-200 ${
+                              item.isSubDropdownOpen ? 'rotate-180' : ''
+                            }`}
                           >
                             <ChevronDownIcon />
                           </span>
                         </a>
                         {item.isSubDropdownOpen && (
-                          <div className="absolute top-0 left-full mt-0 ml-2 min-w-[200px] bg-white rounded-md shadow-lg py-2 z-50">
-                            {item.subDropdown.map((subItem) => (
+                          <div className="absolute top-0 left-full z-50 mt-0 ml-2 min-w-[200px] rounded-md bg-white py-2 shadow-lg">
+                            {item.subDropdown.map(subItem => (
                               <a
                                 key={subItem}
                                 href="#"
@@ -234,8 +235,8 @@ export function Navbar() {
                       >
                         {item}
                       </a>
-                    )
-                  ))}
+                    ),
+                  )}
                 </div>
               )}
             </div>
@@ -248,9 +249,9 @@ export function Navbar() {
             <input
               type="text"
               placeholder="Search Korean Product..."
-              className="pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow w-72"
+              className="w-72 rounded-full border border-gray-300 py-2 pr-4 pl-10 transition-shadow focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
-            <span className="absolute left-3 top-1/2 transform -translate-y-1/2">
+            <span className="absolute top-1/2 left-3 -translate-y-1/2 transform">
               <SearchIcon />
             </span>
           </div>
@@ -258,7 +259,7 @@ export function Navbar() {
           <div className="flex items-center space-x-4">
             <button className="relative">
               <UserIcon />
-              <span className="absolute top-0 right-0 -mt-1 -mr-1 h-3 w-3 bg-red-500 rounded-full border-2 border-white" />
+              <span className="absolute top-0 right-0 -mt-1 -mr-1 h-3 w-3 rounded-full border-2 border-white bg-red-500" />
             </button>
             <button>
               <CartIcon />
@@ -269,34 +270,40 @@ export function Navbar() {
 
       {/* Mobile Menu (visible on small screens) */}
       <div
-        className={`md:hidden absolute top-16 left-0 w-full bg-white shadow-lg transition-all duration-300 transform ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
-          }`}
+        className={`absolute top-16 left-0 w-full transform bg-white shadow-lg transition-all duration-300 md:hidden ${
+          isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
+        }`}
       >
-        <div className="flex flex-col p-4 space-y-2">
-          {navLinks.map((link) => (
+        <div className="flex flex-col space-y-2 p-4">
+          {navLinks.map(link => (
             <div key={link.title}>
               <button
-                onClick={() => link.setDropdownOpen && link.setDropdownOpen(!link.isDropdownOpen)}
-                className="w-full flex justify-between items-center text-gray-700 hover:bg-gray-100 p-2 rounded-md"
+                onClick={() =>
+                  link.setDropdownOpen &&
+                  link.setDropdownOpen(!link.isDropdownOpen)
+                }
+                className="flex w-full items-center justify-between rounded-md p-2 text-gray-700 hover:bg-gray-100"
               >
                 {link.title}
                 {link.dropdown && <ChevronDownIcon />}
               </button>
               {link.dropdown && link.isDropdownOpen && (
-                <div className="ml-4 mt-2 border-l border-gray-200">
-                  {link.dropdown.map((item, index) => (
+                <div className="mt-2 ml-4 border-l border-gray-200">
+                  {link.dropdown.map((item, index) =>
                     typeof item === 'object' ? (
                       <div key={item.title}>
                         <button
-                          onClick={() => item.setSubDropdownOpen(!item.isSubDropdownOpen)}
-                          className="w-full flex justify-between items-center text-gray-700 hover:bg-gray-100 p-2 rounded-md"
+                          onClick={() =>
+                            item.setSubDropdownOpen(!item.isSubDropdownOpen)
+                          }
+                          className="flex w-full items-center justify-between rounded-md p-2 text-gray-700 hover:bg-gray-100"
                         >
                           {item.title}
                           <ChevronDownIcon />
                         </button>
                         {item.isSubDropdownOpen && (
-                          <div className="ml-4 mt-2">
-                            {item.subDropdown.map((subItem) => (
+                          <div className="mt-2 ml-4">
+                            {item.subDropdown.map(subItem => (
                               <a
                                 key={subItem}
                                 href="#"
@@ -316,8 +323,8 @@ export function Navbar() {
                       >
                         {item}
                       </a>
-                    )
-                  ))}
+                    ),
+                  )}
                 </div>
               )}
             </div>
@@ -326,4 +333,4 @@ export function Navbar() {
       </div>
     </nav>
   );
-};
+}
