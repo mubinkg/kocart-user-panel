@@ -151,10 +151,6 @@ export function Navbar() {
     },
   ];
 
-  // const toggleMobileMenu = () => {
-  //   setIsMobileMenuOpen(!isMobileMenuOpen);
-  // };
-
   return (
     <nav className="sticky top-0 z-50 bg-white font-sans shadow-sm">
       <div className="container mx-auto flex items-center justify-between">
@@ -186,7 +182,6 @@ export function Navbar() {
                   </span>
                 )}
               </a>
-              {/* Dropdown Menu */}
               {link.dropdown && link.isDropdownOpen && (
                 <div className="absolute top-full left-0 z-50 mt-2 min-w-[200px] rounded-md bg-white py-2 shadow-lg">
                   {link.dropdown.map((item, index) =>
@@ -225,7 +220,6 @@ export function Navbar() {
                         )}
                       </div>
                     ) : (
-                      // Regular dropdown item
                       <a
                         key={index}
                         href="#"
